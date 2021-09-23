@@ -7,9 +7,10 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 
     <title>User</title>
+
     <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
@@ -23,24 +24,21 @@
 <!--    </div> -->
     <p></p>
     <h1><center>Sarah Sim</center></h1>
-    <center><a v-bind:href="result.picture.large"><img v-bind:src="result.picture.large" width = "200" height = "150" alt="Sarah Sim"></a></center>
-    <p>
-      <div class="col col-8" id="someApp">
-        <h3>Second of two columns</h3>
-        <form v-on:submit.prevent="fetchUserData">
-          <button type="submit">Refresh</button>
-        </form>
-        <ul>
-          <li v-for="item in list">{{ item }}</li>
-        </ul>
-        <p>{{ result.name.first + " " + result.name.last }}</p>
-        <p>{{ result.location.country }}</p>
-        <p>{{ result.dob.date }}</p>
-        <p>{{ prettyBirthday }}</p>
-        <p><a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></p>
-      </div>
-    <a href = "mailto: sarahsim333.com">Send Me an Email</a></center>
-
+    <h3>Second of two columns</h3>
+    <div id="randomuser">
+        <p v-for="user">
+        <p>Name: {{ person.name.first + " " + person.name.last }}</p>
+        <p>Location: {{ person.location.country }}</p>
+        <p>Date of Birth: {{ person.dob.date }}</p>
+        <!-- <p>Birthday: {{ prettyBirthday }}</p> -->
+        <p>Email: <a v-bind:href="'mailto:' + result.email">{{ person.email }}</a></p>
+        <a href = "mailto: sarahsim333.com">Send Me an Email</a></center>
+        <center><a v-bind:href="person.picture.large"><img v-bind:src="person.picture.large" width = "200" height = "150" alt="Sarah Sim"/></a></center>
+      </p>
+    </div>
+      <form v-on:submit.prevent="fetchUserData">
+        <button type="submit">Refresh</button>
+    </form>
 
 
 
@@ -49,13 +47,14 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-    <script src='js/index.js'></script>
-    <script src='js/tablesort.min.js'></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script> -->
+    <script src='js/random.js'></script>
+
+    <!-- <script>dayjs().format()</script> -->
+    <!-- <script src='js/tablesort.min.js'></script>
     <script>
       new Tablesort(document.getElementById('table-id'));
-    </script>
-    -->
+    </script> -->
   </body>
 </html>
